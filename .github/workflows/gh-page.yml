@@ -7,14 +7,31 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    env:
+      NODE_VERSION: '16'
+
     steps:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Deploy Vuepress to GitHub Pages with CNAME
-      uses: nkxingxh/vuepress-github-actions-deploy@master
+    - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+    - name: Install dependencies
+        run: npm install
+
+    - name: Build documentation site
+        run: npm run docs:build
+
+    - name: Deploy to GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v3
+      with:
+        target_branch: gh-pages
+        build_dir: docs/.vuepress/dist
+        fqdn: miraiez.nkxingxh.top
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_DIR: docs/.vuepress/dist/
-        BUILD_SCRIPT: npm install && npm run docs:build
-        PAGES_CNAME: miraiez.nkxingxh.top
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
