@@ -11,9 +11,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Vuepress to GitHub Pages
-      uses: testthedocs/github-pages-deploy-action@0.0.4
+    - name: Deploy Vuepress to GitHub Pages with CNAME
+      uses: rreichel3/vuepress-github-actions-deploy@v3.1
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_DIR: docs/.vuepress/dist/
         BUILD_SCRIPT: npm install && npm run docs:build
+        PAGES_CNAME: miraiez.nkxingxh.top
