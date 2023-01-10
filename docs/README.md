@@ -25,4 +25,4 @@ footer: Copyright © 2021-2023 NKXingXh
 
 2. 配置 mirai-api-http 与 config.php
 
-3. 点击 Mirai 即可
+3. 启动 Mirai 即可
