@@ -45,7 +45,7 @@ pluginRegister(new class extends pluginParent
 pluginRegister($pluginClass)
 ```
 
-| 参数          | 类型  | 是否可空  | 说明 |
+| 参数          | 类型  | 可选  | 说明 |
 | ------------- | ----- | --------- | --- |
 | pluginClass   | Class | false     | 要注册的插件对象 |
 
@@ -81,7 +81,7 @@ public function _init() {...}
 hookRegister($func, ...$types)
 ```
 
-| 参数  | 类型      | 是否可空  | 说明 |
+| 参数  | 类型      | 可选  | 说明 |
 | ----- | --------- | --------- | --- |
-| func  | String    | false     | 要注册的函数名 (必须是**公有**函数) |
-| types | String    | false     | 要挂钩的消息或事件类型 (可传入多个) |
+| func  | string    | false     | 要注册的函数名 (必须是**公有**函数) |
+| types | string    | false     | 要挂钩的消息或事件类型 (可传入多个) |
