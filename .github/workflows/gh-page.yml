@@ -1,0 +1,19 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Vuepress to GitHub Pages
+      uses: testthedocs/github-pages-deploy-action@0.0.4
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_DIR: docs/.vuepress/dist/
+        BUILD_SCRIPT: npm install && docs:build
