@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Deploy Vuepress to GitHub Pages with CNAME
-      uses: rreichel3/vuepress-github-actions-deploy@v3.1
+      uses: nkxingxh/vuepress-github-actions-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_DIR: docs/.vuepress/dist/
