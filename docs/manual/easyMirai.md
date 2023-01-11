@@ -28,7 +28,9 @@ messageChain2PlainText($messageChain = null)
 | ---- | --- | ---- | --- |
 | messageChain | array | true | 要从其获取文本的消息链 (留空则为当前上报的消息链) |
 
-**返回值** `string` 文本消息内容
+**返回值**
+
+`string` 文本消息内容
 
 ### 获取消息链中的图片地址
 
@@ -40,7 +42,9 @@ messageChain2ImageUrl($messageChain = null)
 | ---- | --- | ---- | --- |
 | messageChain | array | true | 要从其获取文本的消息链 (留空则为当前上报的消息链) |
 
-**返回值** `array` 包含图片 URL 的数组
+**返回值**
+
+`array` 包含图片 URL 的数组
 
 ### 获取消息链中的 At
 
@@ -52,7 +56,9 @@ messageChain2At($messageChain = null)
 | ---- | --- | ---- | --- |
 | messageChain | array | true | 要从其获取文本的消息链 (留空则为当前上报的消息链) |
 
-**返回值** `array` 包含被 @ 的 QQ 号的数组
+**返回值**
+
+`array` 包含被 @ 的 QQ 号的数组
 
 ### 获取消息链中的语音地址
 
@@ -64,7 +70,9 @@ messageChain2Voice($messageChain = null)
 | ---- | --- | ---- | --- |
 | messageChain | array | true | 要从其获取文本的消息链 (留空则为当前上报的消息链) |
 
-**返回值** `array` 包含语音 URL 的数组
+**返回值**
+
+`array` 包含语音 URL 的数组
 
 ### 获取消息链中的引用
 
@@ -76,7 +84,9 @@ messageChain2Quote($messageChain = null)
 | ---- | --- | ---- | --- |
 | messageChain | array | true | 要从其获取文本的消息链 (留空则为当前上报的消息链) |
 
-**返回值** `array` (Quote 消息)[https://github.com/project-mirai/mirai-api-http/blob/master/docs/api/MessageType.md#quote]
+**返回值**
+
+`array` [Quote 消息](https://github.com/project-mirai/mirai-api-http/blob/master/docs/api/MessageType.md#quote)
 
 ### 获取消息链中的文件 ID
 
@@ -105,7 +115,9 @@ getMessageChain($PlainText = '', $ImageUrl = '', $AtTarget = 0)
 | ImageUrl | array, string | true | 图片链接 (可以使用数组传入多张) |
 | AtTarget | array, integer | true | 要 At 的 QQ 号 (可以使用数组传入多个) |
 
-**返回值** `array` 消息链
+**返回值**
+
+`array` 消息链
 
 ### 判断上报类型是否为消息
 
@@ -117,7 +129,9 @@ isMessage($type = true)
 | ---- | --- | ---- | --- |
 | type | string | true | 要判断的上报类型 (留空则为当前上报的消息类型) |
 
-**返回值** `boolean` 上报类型是否为消息 (群聊消息、好友消息、临时消息、频道消息)
+**返回值**
+
+`boolean` 上报类型是否为消息 (群聊消息、好友消息、临时消息、频道消息)
 
 ## 群相关
 
@@ -132,7 +146,9 @@ isInGroup($groupID = true, $target = true)
 | groupID | integer | true | 群号(传入 true 则指定当前收到的消息所在群号) |
 | target | integer | true | 指定 QQ 号 (留空表示当前收到消息的 bot, 传入 true 则表示当前收到的消息的发送者) |
 
-**返回值** `boolean` 该群是否存在该成员
+**返回值**
+
+`boolean` 该群是否存在该成员
 
 ### 获取 BOT 在群中的权限
 
