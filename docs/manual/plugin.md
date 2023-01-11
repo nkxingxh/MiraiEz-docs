@@ -86,6 +86,11 @@ hookRegister($func, ...$types)
 | func  | string    | false     | 要注册的函数名 (必须是**公有**函数) |
 | types | string    | false     | 要挂钩的消息或事件类型 (可传入多个) |
 
+**上报类型**
+
+- [消息类型](https://github.com/project-mirai/mirai-api-http/blob/master/docs/api/MessageType.md)
+- [事件类型](https://github.com/project-mirai/mirai-api-http/blob/master/docs/api/EventType.md)
+
 ## 处理函数
 
 在插件对象内定义**公有**函数，用于处理注册的消息与事件。
