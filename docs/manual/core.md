@@ -295,6 +295,12 @@ resp_newFriendRequestEvent($operate, $eventId = true, $fromId = true, $groupId =
 | groupId | integer | true | 事件对应申请人的群号，可能为 0 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
 
+| operate | 说明 |
+| ------- | ---- |
+| 0 | 同意添加好友 |
+| 1 | 拒绝添加好友 |
+| 2 | 拒绝添加好友并添加黑名单，不再接收该用户的好友申请 |
+
 ### 用户入群申请
 
 ```php
@@ -309,6 +315,14 @@ resp_memberJoinRequestEvent($operate, $eventId = true, $fromId = true, $groupId 
 | groupId | integer | true | 事件对应申请人的群号 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
 
+| operate | 说明 |
+| ------- | ---- |
+| 0 | 同意入群 |
+| 1 | 拒绝入群 |
+| 2 | 忽略请求 |
+| 3 | 拒绝入群并添加黑名单，不再接收该用户的入群申请 |
+| 4 | 忽略入群并添加黑名单，不再接收该用户的入群申请 |
+
 ### Bot 被邀请入群申请
 
 ```php
@@ -322,3 +336,8 @@ resp_botInvitedJoinGroupRequestEvent($operate, $eventId = true, $fromId = true, 
 | fromId | integer | true | 邀请人 (好友) 的QQ号 (留空或传入 true 则为当前上报的邀请人) |
 | groupId | integer | true | 被邀请进入群的群号 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
+
+| operate | 说明 |
+| ------- | ---- |
+| 0 | 同意邀请 |
+| 1 | 拒绝邀请 |
