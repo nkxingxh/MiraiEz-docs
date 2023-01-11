@@ -280,3 +280,45 @@ memberInfo($target = true, $memberId = true, $info = array(), $sessionKey = '')
 未定义
 
 ## 事件处理
+
+### 添加好友申请
+
+```php
+resp_newFriendRequestEvent($operate, $eventId = true, $fromId = true, $groupId = true, $message = "", $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| operate | integer | false | 响应的操作类型 |
+| eventId | integer | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | integer | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
+| groupId | integer | true | 事件对应申请人的群号，可能为 0 (留空或传入 true 则为当前上报的群号) |
+| message | string | true | 回复的信息 |
+
+### 用户入群申请
+
+```php
+resp_memberJoinRequestEvent($operate, $eventId = true, $fromId = true, $groupId = true, $message = "", $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| operate | integer | false | 响应的操作类型 |
+| eventId | integer | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | integer | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
+| groupId | integer | true | 事件对应申请人的群号 (留空或传入 true 则为当前上报的群号) |
+| message | string | true | 回复的信息 |
+
+### Bot 被邀请入群申请
+
+```php
+resp_botInvitedJoinGroupRequestEvent($operate, $eventId = true, $fromId = true, $groupId = true, $message = "", $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| operate | integer | false | 响应的操作类型 |
+| eventId | integer | true | 事件标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | integer | true | 邀请人 (好友) 的QQ号 (留空或传入 true 则为当前上报的邀请人) |
+| groupId | integer | true | 被邀请进入群的群号 (留空或传入 true 则为当前上报的群号) |
+| message | string | true | 回复的信息 |
