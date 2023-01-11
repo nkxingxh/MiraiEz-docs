@@ -40,3 +40,7 @@ saveConfig($configFile = '', $config, $jsonEncodeFlags = JSON_UNESCAPED_UNICODE)
 | configFile | string | true | 配置文件名 (留空为当前插件包名, 不需要加拓展名) |
 | config | array | false | 配置内容 (要求能被 JSON 编码) |
 | jsonEncodeFlags | int | true | json_encode flags |
+
+**返回值**
+
+`bool` 成功为 true, 失败为 false
