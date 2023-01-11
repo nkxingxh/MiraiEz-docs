@@ -20,6 +20,13 @@ MiraiEz 是一个 PHP 插件框架，通常不能脱离 mirai-api-http 使用。
 
 MiraiEz 根据 **AGPL-3.0 许可证** 进行许可，有关详细信息，请参阅 [LICENSE](https://github.com/nkxingxh/MiraiEz/blob/main/LICENSE) 文件。
 
+**附加要求**
+
+你必须保留每个文件顶部的版权标识。
+
+如果你修改后进行重新分发，请在自述文件或修改的文件顶部说明你修改的部分。
+
+
 ## 鸣谢
 
 > Free. Built on open source. Runs everywhere.
