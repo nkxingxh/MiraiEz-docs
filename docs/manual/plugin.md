@@ -1,4 +1,4 @@
-# 插件对象
+# 插件基础
 
 本章节将带你了解 MiraiEz 的基本插件机制与插件编写方法。
 
@@ -101,3 +101,13 @@ public function hook($_DATA) {...}
 | 参数 | 类型 | 说明 |
 | ---- | --- | ---- |
 | _DATA | Array | webhook 上报的完整数据 (已解码 JSON) |
+
+## 可读取的全局变量
+
+为了便于插件的开发，有一些预处理过的数据存储在全局变量中。你可以在插件中调用以方便开发，但是不要修改这些全局变量的值。
+
+| 全局变量 | 类型 | 说明 |
+| -------- | ---- | ---- |
+| _PlainText | string | [messageChain2PlainText](./easyMirai.md#获取消息链中的文本) 函数处理得到的当前上报消息的文本内容 (仅支持上报类型为消息) |
+| _ImageUrl | array | [messageChain2ImageUrl](./easyMirai.md#获取消息链中的图片地址) 函数处理得到的当前上报消息的图片地址数组 (仅支持上报类型为消息) |
+| _At | array | [messageChain2At](./easyMirai.md#获取消息链中的-At) 函数处理得到的当前上报消息中被@的QQ号数组 (仅支持上报类型为消息) |
