@@ -8,7 +8,7 @@ sidebarDepth: 2 # 2 其实是默认值
 本章节的函数内容大多与 mirai-api-http 的 API 相似或一致 (部分函数的参数顺序可能发生变动)，你可以参考 mirai-api-http 的文档了解每个参数的具体含义以及每个函数的返回内容。
 :::
 
-::: tip
+::: tip 关于未定义函数
 有些 mirai-api-http 的 API 并未 (还未) 在 MiraiEz 中作为函数被定义，可以使用适当的[**适配器函数**](#适配器函数)调用这些命令。
 :::
 
@@ -24,6 +24,10 @@ sidebarDepth: 2 # 2 其实是默认值
 
 > 例如命令字 resp_newFriendRequestEvent 与 resp/newFriendRequestEvent 使用自动适配器都可以。
 
+::: tip
+如未设置只使用 HTTP 适配器，则自动适配器会优先使用 Webhook 适配器返回数据且只会使用一次。
+:::
+
 ```php
 autoAdapter($command = '', $content = array())
 ```
@@ -36,7 +40,7 @@ autoAdapter($command = '', $content = array())
 **返回值**
 
 - <Badge type="tip" text="HTTP" vertical="middle" /> `array` JSON 解码后的数组
-- <Badge type="tip" text="WEBHOOK" vertical="middle" /> `array` 固定返回值为 `{"code": 0, "message": "success"}` (此处使用 JSON 便于表达，实际返回是解码为数组后的内容)
+- <Badge type="tip" text="Webhook" vertical="middle" /> `array` 固定返回值为 `{"code": 0, "message": "success"}` (此处使用 JSON 便于表达，实际返回是解码为数组后的内容)
 
 ### HTTP 适配器
 
