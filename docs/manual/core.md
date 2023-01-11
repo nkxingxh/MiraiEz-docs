@@ -35,8 +35,8 @@ autoAdapter($command = '', $content = array())
 
 **返回值**
 
-<Badge type="tip" text="HTTP" vertical="middle" /> `array` JSON 解码后的数组
-<Badge type="tip" text="WEBHOOK" vertical="middle" /> `array` 固定返回值为 `{"code": 0, "message": "success"}` (此处使用 JSON 便于表达，实际返回是解码为数组后的内容)
+- <Badge type="tip" text="HTTP" vertical="middle" /> `array` JSON 解码后的数组
+- <Badge type="tip" text="WEBHOOK" vertical="middle" /> `array` 固定返回值为 `{"code": 0, "message": "success"}` (此处使用 JSON 便于表达，实际返回是解码为数组后的内容)
 
 ### HTTP 适配器
 
