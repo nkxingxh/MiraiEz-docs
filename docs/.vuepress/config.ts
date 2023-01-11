@@ -41,5 +41,6 @@ export default defineUserConfig({
     tip: '提示',
     warning: '注意',
     danger: '警告',
+    details: '详细信息'
   }),
 })

@@ -5,7 +5,11 @@ sidebarDepth: 2 # 2 其实是默认值
 # 核心函数库
 
 ::: tip
-本章节的函数内容大多与 mirai-api-http 的 API 相似或一致 (部分函数的参数顺序可能发生变动)，你可以参考 mirai-api-http 的文档了解每个参数的具体含义。
+本章节的函数内容大多与 mirai-api-http 的 API 相似或一致 (部分函数的参数顺序可能发生变动)，你可以参考 mirai-api-http 的文档了解每个参数的具体含义以及每个函数的返回内容。
+:::
+
+::: tip 关于 sessionKey
+如未特别说明，则函数中的 sessionKey 参数可以留空，不需要考虑鉴权相关问题。因为本框架已经自动处理了，所以你只需要专注于命令与其内容即可。
 :::
 
 ## 消息发送与撤回
@@ -21,7 +25,6 @@ sendFriendMessage($target, $messageChain, $quote = 0, $sessionKey = '')
 | target | integer | false | 发送消息目标好友的 QQ 号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
 | quote | integer | true | 引用一条消息的 messageId 进行回复 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 发送群消息
 
@@ -34,7 +37,6 @@ sendGroupMessage($target, $messageChain, $quote = 0, $sessionKey = '')
 | target | integer | false | 发送消息目标群的群号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
 | quote | integer | true | 引用一条消息的 messageId 进行回复 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 发送临时会话消息
 
@@ -48,7 +50,6 @@ sendTempMessage($qq, $group, $messageChain, $quote = 0, $sessionKey = '')
 | group | integer | false | 临时会话群号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
 | quote | integer | true | 引用一条消息的 messageId 进行回复 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 发送头像戳一戳消息
 
@@ -64,7 +65,6 @@ recall($messageId = true, $target = true, $sessionKey = '')
 | ---- | --- | ---- | --- |
 | messageId | integer | true | 需要撤回的消息的 messageId (留空或传入 true 指定为当前上报消息) |
 | target | integer | true | 好友 id 或群 id (留空或传入 true 指定为当前上报消息) |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 获取漫游消息
 
@@ -87,7 +87,6 @@ file_info($id = true, $path = null, $target = true, $group = null, $qq = null, $
 | group | integer | true | 群号 |
 | qq | integer | true | 好友 QQ 号 |
 | withDownloadInfo | boolean | true | 是否携带下载信息，额外请求，无必要不要携带 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 创建文件夹
 
@@ -102,7 +101,6 @@ file_mkdir($id, $directoryName, $path = null, $target = null, $group = null, $qq
 | target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
 | group | integer | true | 群号 |
 | qq | integer | true | 好友 QQ 号 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 删除文件
 
@@ -117,7 +115,6 @@ file_delete($id = true, $path = null, $target = true, $group = null, $qq = null,
 | target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
 | group | integer | true | 群号 |
 | qq | integer | true | 好友 QQ 号 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 移动文件
 
@@ -134,7 +131,6 @@ function file_move($id = true, $moveTo = null, $path = null, $moveToPath = null,
 | target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
 | group | integer | true | 群号 |
 | qq | integer | true | 好友 QQ 号 |
-| sessionKey | string | true | 已经激活的 Session |
 
 ### 重命名文件
 
@@ -150,7 +146,14 @@ file_rename($id = true, $renameTo = null, $path = null, $target = true, $group =
 | target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
 | group | integer | true | 群号 |
 | qq | integer | true | 好友 QQ 号 |
-| sessionKey | string | true | 已经激活的 Session |
+
+### 图片文件上传
+
+未定义
+
+### 语音文件上传
+
+未定义
 
 ### 群文件上传
 
@@ -164,16 +167,116 @@ file_upload($file, $path = '', $type = 'group', $target = true, $sessionKey = ''
 | path | string | true | 上传目录的 id, 空串为上传到根目录 |
 | type | string | true | 当前仅支持 `group` (传入 true 指定为当前类型, 留空则为 group) |
 | target | integer | true | 上传目标群号 (传入 true 指定为当前群) |
-| sessionKey | string | true | 已经激活的 Session |
 
 
 ## 账号信息与管理
 
+### 获取好友列表
 
-## 群管理
+```php
+friendList($sessionKey = '')
+```
+
+### 获取群列表
+
+```php
+groupList($sessionKey = '')
+```
+
+### 获取群成员列表
+
+```php
+memberList($target = true, $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| target | integer | true | 指定群的群号 (传入 true 指定为当前群) |
+
+### 获取Bot资料
+
+未定义
+
+### 获取好友资料
+
+未定义
+
+### 获取群成员资料
+
+未定义
+
+### 获取QQ用户资料
+
+未定义
+
+### 删除好友
+
+未定义
 
 
-## 群公告
+## 群管理与公告
 
+### 禁言群成员
+
+未定义
+
+### 解除群成员禁言
+
+未定义
+
+### 移除群成员
+
+未定义
+
+### 退出群聊
+
+未定义
+
+### 全体禁言
+
+未定义
+
+### 解除全体禁言
+
+未定义
+
+### 设置群精华消息
+
+未定义
+
+### 获取/修改群设置
+
+```php
+groupConfig($target = true, $config = array(), $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| target | integer | true | 指定群的群号 |
+| config | array | true | 群设置 (留空则为获取群设置) |
+
+### 获取/修改群员设置
+
+```php
+memberInfo($target = true, $memberId = true, $info = array(), $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| target | integer | true | 指定群的群号 |
+| memberId | integer | true | 群员 QQ 号 |
+| info | array | true | 群员资料 (留空则为获取群员设置) |
+
+### 获取群公告
+
+未定义
+
+### 发布群公告
+
+未定义
+
+### 删除群公告
+
+未定义
 
 ## 事件处理
