@@ -22,9 +22,9 @@ sendFriendMessage($target, $messageChain, $quote = 0, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| target | integer | false | 发送消息目标好友的 QQ 号 |
+| target | int | false | 发送消息目标好友的 QQ 号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
-| quote | integer | true | 引用一条消息的 messageId 进行回复 |
+| quote | int | true | 引用一条消息的 messageId 进行回复 |
 
 ### 发送群消息
 
@@ -34,9 +34,9 @@ sendGroupMessage($target, $messageChain, $quote = 0, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| target | integer | false | 发送消息目标群的群号 |
+| target | int | false | 发送消息目标群的群号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
-| quote | integer | true | 引用一条消息的 messageId 进行回复 |
+| quote | int | true | 引用一条消息的 messageId 进行回复 |
 
 ### 发送临时会话消息
 
@@ -46,10 +46,10 @@ sendTempMessage($qq, $group, $messageChain, $quote = 0, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| qq | integer | false | 临时会话对象 QQ 号 |
-| group | integer | false | 临时会话群号 |
+| qq | int | false | 临时会话对象 QQ 号 |
+| group | int | false | 临时会话群号 |
 | messageChain | array, string | false | 要发送的消息链或文本 |
-| quote | integer | true | 引用一条消息的 messageId 进行回复 |
+| quote | int | true | 引用一条消息的 messageId 进行回复 |
 
 ### 发送头像戳一戳消息
 
@@ -63,8 +63,8 @@ recall($messageId = true, $target = true, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| messageId | integer | true | 需要撤回的消息的 messageId (留空或传入 true 指定为当前上报消息) |
-| target | integer | true | 好友 id 或群 id (留空或传入 true 指定为当前上报消息) |
+| messageId | int | true | 需要撤回的消息的 messageId (留空或传入 true 指定为当前上报消息) |
+| target | int | true | 好友 id 或群 id (留空或传入 true 指定为当前上报消息) |
 
 ### 获取漫游消息
 
@@ -83,10 +83,10 @@ file_info($id = true, $path = null, $target = true, $group = null, $qq = null, $
 | ---- | --- | ---- | --- |
 | id | string | true | 文件id, 空串为根目录 |
 | path | string | true | 文件夹路径, 文件夹允许重名, 不保证准确, 准确定位使用 id |
-| target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
-| group | integer | true | 群号 |
-| qq | integer | true | 好友 QQ 号 |
-| withDownloadInfo | boolean | true | 是否携带下载信息，额外请求，无必要不要携带 |
+| target | int | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
+| group | int | true | 群号 |
+| qq | int | true | 好友 QQ 号 |
+| withDownloadInfo | bool | true | 是否携带下载信息，额外请求，无必要不要携带 |
 
 ### 创建文件夹
 
@@ -98,9 +98,9 @@ file_mkdir($id, $directoryName, $path = null, $target = null, $group = null, $qq
 | id | string | false | 父目录id, 空串为根目录 |
 | directoryName | string | false | 新建文件夹名 |
 | path | string | true | 文件夹路径, 文件夹允许重名, 不保证准确, 准确定位使用 id |
-| target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
-| group | integer | true | 群号 |
-| qq | integer | true | 好友 QQ 号 |
+| target | int | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
+| group | int | true | 群号 |
+| qq | int | true | 好友 QQ 号 |
 
 ### 删除文件
 
@@ -112,9 +112,9 @@ file_delete($id = true, $path = null, $target = true, $group = null, $qq = null,
 | ---- | --- | ---- | --- |
 | id | string | false | 删除文件id |
 | path | string | true | 文件夹路径, 文件夹允许重名, 不保证准确, 准确定位使用 id |
-| target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
-| group | integer | true | 群号 |
-| qq | integer | true | 好友 QQ 号 |
+| target | int | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
+| group | int | true | 群号 |
+| qq | int | true | 好友 QQ 号 |
 
 ### 移动文件
 
@@ -128,9 +128,9 @@ function file_move($id = true, $moveTo = null, $path = null, $moveToPath = null,
 | moveTo | string | true | 移动目标文件夹 id |
 | path | string | true | 文件夹路径, 文件夹允许重名, 不保证准确, 准确定位使用 id |
 | moveToPath | string | true | 移动目标文件路径, 文件夹允许重名, 不保证准确, 准确定位使用 moveTo |
-| target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
-| group | integer | true | 群号 |
-| qq | integer | true | 好友 QQ 号 |
+| target | int | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
+| group | int | true | 群号 |
+| qq | int | true | 好友 QQ 号 |
 
 ### 重命名文件
 
@@ -143,9 +143,9 @@ file_rename($id = true, $renameTo = null, $path = null, $target = true, $group =
 | id | string | false | 重命名文件 id |
 | renameTo | string | false | 新文件名 |
 | path | string | true | 文件夹路径, 文件夹允许重名, 不保证准确, 准确定位使用 id |
-| target | integer | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
-| group | integer | true | 群号 |
-| qq | integer | true | 好友 QQ 号 |
+| target | int | true | 群号或好友 QQ 号 (留空或传入 true 指定为当前群或好友) |
+| group | int | true | 群号 |
+| qq | int | true | 好友 QQ 号 |
 
 ### 图片文件上传
 
@@ -166,7 +166,7 @@ file_upload($file, $path = '', $type = 'group', $target = true, $sessionKey = ''
 | file | CURLFile | false | cURL 文件对象 |
 | path | string | true | 上传目录的 id, 空串为上传到根目录 |
 | type | string | true | 当前仅支持 `group` (传入 true 指定为当前类型, 留空则为 group) |
-| target | integer | true | 上传目标群号 (传入 true 指定为当前群) |
+| target | int | true | 上传目标群号 (传入 true 指定为当前群) |
 
 
 ## 账号信息与管理
@@ -191,7 +191,7 @@ memberList($target = true, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| target | integer | true | 指定群的群号 (传入 true 指定为当前群) |
+| target | int | true | 指定群的群号 (传入 true 指定为当前群) |
 
 ### 获取Bot资料
 
@@ -252,7 +252,7 @@ groupConfig($target = true, $config = array(), $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| target | integer | true | 指定群的群号 |
+| target | int | true | 指定群的群号 |
 | config | array | true | 群设置 (留空则为获取群设置) |
 
 ### 获取/修改群员设置
@@ -263,8 +263,8 @@ memberInfo($target = true, $memberId = true, $info = array(), $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| target | integer | true | 指定群的群号 |
-| memberId | integer | true | 群员 QQ 号 |
+| target | int | true | 指定群的群号 |
+| memberId | int | true | 群员 QQ 号 |
 | info | array | true | 群员资料 (留空则为获取群员设置) |
 
 ### 获取群公告
@@ -289,10 +289,10 @@ resp_newFriendRequestEvent($operate, $eventId = true, $fromId = true, $groupId =
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| operate | integer | false | 响应的操作类型 |
-| eventId | integer | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
-| fromId | integer | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
-| groupId | integer | true | 事件对应申请人的群号，可能为 0 (留空或传入 true 则为当前上报的群号) |
+| operate | int | false | 响应的操作类型 |
+| eventId | int | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | int | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
+| groupId | int | true | 事件对应申请人的群号，可能为 0 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
 
 | operate | 说明 |
@@ -309,10 +309,10 @@ resp_memberJoinRequestEvent($operate, $eventId = true, $fromId = true, $groupId 
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| operate | integer | false | 响应的操作类型 |
-| eventId | integer | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
-| fromId | integer | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
-| groupId | integer | true | 事件对应申请人的群号 (留空或传入 true 则为当前上报的群号) |
+| operate | int | false | 响应的操作类型 |
+| eventId | int | true | 响应申请事件的标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | int | true | 事件对应申请人 QQ 号 (留空或传入 true 则为当前上报的申请人) |
+| groupId | int | true | 事件对应申请人的群号 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
 
 | operate | 说明 |
@@ -331,10 +331,10 @@ resp_botInvitedJoinGroupRequestEvent($operate, $eventId = true, $fromId = true, 
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| operate | integer | false | 响应的操作类型 |
-| eventId | integer | true | 事件标识 (留空或传入 true 则为当前上报的事件标识) |
-| fromId | integer | true | 邀请人 (好友) 的QQ号 (留空或传入 true 则为当前上报的邀请人) |
-| groupId | integer | true | 被邀请进入群的群号 (留空或传入 true 则为当前上报的群号) |
+| operate | int | false | 响应的操作类型 |
+| eventId | int | true | 事件标识 (留空或传入 true 则为当前上报的事件标识) |
+| fromId | int | true | 邀请人 (好友) 的QQ号 (留空或传入 true 则为当前上报的邀请人) |
+| groupId | int | true | 被邀请进入群的群号 (留空或传入 true 则为当前上报的群号) |
 | message | string | true | 回复的信息 |
 
 | operate | 说明 |

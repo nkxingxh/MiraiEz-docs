@@ -11,8 +11,8 @@ replyMessage($messageChain, $quote = 0, $at = 0, $sessionKey = '')
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
 | messageChain | array, string | false | 要发送的消息链或文本 |
-| quote | integer | true | 要引用的消息 ID (0 为不引用, true 为引用当前上报的消息, 其他整数值则为消息ID) |
-| at | integer | true | 要 @ 的人 (0 为不 @, true 为自动 @, 其他整数值则为 qq 号或频道 tiny_id) |
+| quote | int | true | 要引用的消息 ID (0 为不引用, true 为引用当前上报的消息, 其他整数值则为消息ID) |
+| at | int | true | 要 @ 的人 (0 为不 @, true 为自动 @, 其他整数值则为 qq 号或频道 tiny_id) |
 
 **返回值**
 
@@ -101,7 +101,7 @@ messageChain2FileId($messageChain = null)
 **返回值** 
 
 - <Badge type="tip" text="成功" vertical="middle" /> `string` 文件 ID
-- <Badge type="danger" text="失败" vertical="middle" /> `boolean` 无文件返回 false
+- <Badge type="danger" text="失败" vertical="middle" /> `bool` 无文件返回 false
 
 ### 生成消息链
 
@@ -113,7 +113,7 @@ getMessageChain($PlainText = '', $ImageUrl = '', $AtTarget = 0)
 | ---- | --- | ---- | --- |
 | PlainText | string | true | 消息文本 |
 | ImageUrl | array, string | true | 图片链接 (可以使用数组传入多张) |
-| AtTarget | array, integer | true | 要 At 的 QQ 号 (可以使用数组传入多个) |
+| AtTarget | array, int | true | 要 At 的 QQ 号 (可以使用数组传入多个) |
 
 **返回值**
 
@@ -131,7 +131,7 @@ isMessage($type = true)
 
 **返回值**
 
-`boolean` 上报类型是否为消息 (群聊消息、好友消息、临时消息、频道消息)
+`bool` 上报类型是否为消息 (群聊消息、好友消息、临时消息、频道消息)
 
 ## 群相关
 
@@ -143,12 +143,12 @@ isInGroup($groupID = true, $target = true)
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| groupID | integer | true | 群号(传入 true 则指定当前收到的消息所在群号) |
-| target | integer | true | 指定 QQ 号 (留空表示当前收到消息的 bot, 传入 true 则表示当前收到的消息的发送者) |
+| groupID | int | true | 群号(传入 true 则指定当前收到的消息所在群号) |
+| target | int | true | 指定 QQ 号 (留空表示当前收到消息的 bot, 传入 true 则表示当前收到的消息的发送者) |
 
 **返回值**
 
-`boolean` 该群是否存在该成员
+`bool` 该群是否存在该成员
 
 ### 获取 BOT 在群中的权限
 
@@ -158,10 +158,10 @@ getGroupPermission($groupID = true, $sessionKey = '')
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
-| groupID | integer | true | 目标群 (留空则为当前上报的群) |
+| groupID | int | true | 目标群 (留空则为当前上报的群) |
 
 **返回值**
 
 - <Badge type="tip" text="成功" vertical="middle" /> `string` BOT 在群中的权限 (MEMBER / ADMINISTRATOR / OWNER)
-- <Badge type="warning" text="失败" vertical="middle" /> `boolean` Bot 不在该群中返回 false
+- <Badge type="warning" text="失败" vertical="middle" /> `bool` Bot 不在该群中返回 false
 - <Badge type="danger" text="失败" vertical="middle" /> `null` 获取当前群失败
