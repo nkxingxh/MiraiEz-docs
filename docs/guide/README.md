@@ -12,6 +12,8 @@ MiraiEz 是一个 PHP 插件框架，通常不能脱离 mirai-api-http 使用。
 
 你可以把 MiraiEz 看作一个 PHP 站点进行部署。
 
+部署好 Web 服务器后，你可以开始[进行配置](./setup.md)。
+
 ## 许可
 
 > Copyright (c) 2021-2023 NKXingXh

@@ -6,8 +6,7 @@ export const sidebarZh: SidebarConfig = {
         text: '快速部署指南',
         children: [
           '/guide/README.md',
-          '/guide/windows.md',
-          '/guide/linux.md'
+          '/guide/setup.md'
         ],
       },
       {
