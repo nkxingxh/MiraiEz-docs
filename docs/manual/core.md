@@ -8,9 +8,61 @@ sidebarDepth: 2 # 2 其实是默认值
 本章节的函数内容大多与 mirai-api-http 的 API 相似或一致 (部分函数的参数顺序可能发生变动)，你可以参考 mirai-api-http 的文档了解每个参数的具体含义以及每个函数的返回内容。
 :::
 
+::: tip
+有些 mirai-api-http 的 API 并未 (还未) 在 MiraiEz 中作为函数被定义，可以使用适当的[**适配器函数**](#适配器函数)调用这些命令。
+:::
+
 ::: tip 关于 sessionKey
 如未特别说明，则函数中的 sessionKey 参数可以留空，不需要考虑鉴权相关问题。因为本框架已经自动处理了，所以你只需要专注于命令与其内容即可。
 :::
+
+## 适配器函数
+
+### 自动适配器
+
+自动选择一个适配器发送命令。命令字中的 **下划线(_)** 与 **左斜杠(/)** 会自动转换。
+
+> 例如命令字 resp_newFriendRequestEvent 与 resp/newFriendRequestEvent 使用自动适配器都可以。
+
+```php
+autoAdapter($command = '', $content = array())
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| command | string | false | 命令字 |
+| content | array | true | 命令参数 |
+
+**返回值**
+
+<Badge type="tip" text="HTTP" vertical="middle" /> `array` JSON 解码后的数组
+<Badge type="tip" text="WEBHOOK" vertical="middle" /> `array` 固定返回值为 `{"code": 0, "message": "success"}` (此处使用 JSON 便于表达，实际返回是解码为数组后的内容)
+
+### HTTP 适配器
+
+向 HTTP 适配器发送请求。
+
+> 使用 HTTP 适配器时**不需要**在命令字前加 **左斜杠(_)**，例如处理用户入群申请为 resp/memberJoinRequestEvent
+
+::: warning 注意
+不同于自动适配器函数，HTTP 适配器函数不会自动将 **下划线(_)** 转换为 **左斜杠(/)**，因此在使用时要特别注意。
+:::
+
+```php
+HttpAdapter($command, $content = array(), $post = null, $json = true)
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| command | string | false | 命令字 |
+| content | array | true | 命令参数 |
+| post | bool | true | 是否使用 POST 方法 (留空自动判断) |
+| json | bool | true | 是否使用 JSON 编码 (仅限 POST, 默认为 true) |
+
+**返回值**
+
+`array` JSON 解码后的数组
+
 
 ## 消息发送与撤回
 
