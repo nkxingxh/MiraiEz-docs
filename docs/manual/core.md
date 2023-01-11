@@ -46,7 +46,7 @@ autoAdapter($command = '', $content = array())
 
 向 HTTP 适配器发送请求。
 
-> 使用 HTTP 适配器时**不需要**在命令字前加 **左斜杠(_)**，例如处理用户入群申请为 resp/memberJoinRequestEvent
+> 使用 HTTP 适配器时**不需要**在命令字前加 **左斜杠(/)**，例如处理用户入群申请为 resp/memberJoinRequestEvent
 
 ::: warning 注意
 不同于自动适配器函数，HTTP 适配器函数不会自动将 **下划线(_)** 转换为 **左斜杠(/)**，因此在使用时要特别注意。
