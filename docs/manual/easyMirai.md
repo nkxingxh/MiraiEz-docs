@@ -58,6 +58,10 @@ messageChain2At($messageChain = null)
 
 **返回值**
 
+::: tip
+如果存在 `@全体成员`，将会使用 -1 作为其 QQ 号。
+:::
+
 `array` 包含被 @ 的 QQ 号的数组
 
 ### 获取消息链中的语音地址
