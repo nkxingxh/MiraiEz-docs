@@ -21,8 +21,8 @@ footer: Copyright © 2021-2023 NKXingXh
 
 ### 快速搭建无需等待
 
-1. 安装 Web 环境 (需要 PHP 7.0 以上版本)
+1. 安装 Web 服务器与 PHP 解释器 (至少需要 PHP 7.0 以上版本，建议使用 php 7.4 及以上版本)
 
-2. 配置 mirai-api-http 与 config.php
+2. 配置 mirai-api-http 并修改 MiraiEz 配置文件
 
 3. 启动 Mirai 即可
