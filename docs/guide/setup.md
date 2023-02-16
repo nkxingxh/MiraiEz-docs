@@ -36,24 +36,26 @@ adapterSettings:
 
 ## MiraiEz 配置
 
-**修改 config.php**
+**修改 config/adapter.php**
 
 1. 修改 mirai-api-http 的 HTTP 适配器访问地址
 1. 修改 verifyKey
 1. 修改用于鉴权 webhook 上报的 Authorization
 
 ```php
-define("httpApi", "http://localhost:8082");
-define("verifyKey", "qZ95l4R4TGQPrrf");
-define("Authorization", "hZaomcUiaulaslD");
+define("MIRAIEZ_HTTP_API", "http://localhost:8082");
+define("MIRAIEZ_HTTP_KEY", "qZ95l4R4TGQPrrf");      //verifyKey
+define("MIRAIEZ_WEBHOOK_AUTH", "hZaomcUiaulaslD");  //Authorization
 ```
+
+**修改 config/debug.php**
 
 1. 设置管理员 QQ
 1. 配置启用调试的好友与群组
 
 ```php
-define('admin_qq', 1234567890);     //填写管理员 QQ
+define('MIRAIEZ_ADMIN_QQ', 1234567890);     //填写管理员 QQ
 
-$debug_groups = [123456789];        //启用调试的群组
-$debug_friends = [1234567890];      //启用调试的好友
+$MIRAIEZ_DEBUG_GROUPS = [123456789];        //启用调试的群组
+$MIRAIEZ_DEBUG_FRIENDS = [1234567890];      //启用调试的好友
 ```
