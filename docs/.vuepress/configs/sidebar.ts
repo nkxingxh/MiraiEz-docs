@@ -16,15 +16,16 @@ export const sidebarZh: SidebarConfig = {
           '/manual/core.md',
           '/manual/easyMirai.md',
           '/manual/pluginsHelp.md',
-          '/manual/curl.md'
+          '/manual/curl.md',
+          //'/manual/examples.md'
         ],
       },
-      {
+      /*{
         text: '进阶调试与排查',
         children: [
           
         ],
-      },
+      },*/
     ],
   }
   

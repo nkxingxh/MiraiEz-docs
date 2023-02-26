@@ -110,18 +110,63 @@ messageChain2FileId($messageChain = null)
 ### 生成消息链
 
 ```php
-getMessageChain($PlainText = '', $ImageUrl = '', $AtTarget = 0)
+getMessageChain($PlainText = '', $Images = '', $AtTarget = 0)
 ```
 
 | 参数 | 类型 | 可选 | 说明 |
 | ---- | --- | ---- | --- |
 | PlainText | string | true | 消息文本 |
-| ImageUrl | array, string | true | 图片链接 (可以使用数组传入多张) |
+| Images | array, string | true | 图片链接或 Base64 (可以使用数组传入多张) |
 | AtTarget | array, int | true | 要 At 的 QQ 号 (可以使用数组传入多个) |
 
 **返回值**
 
 `array` 消息链
+
+### 生成消息链文本成员
+
+```php
+getMessageChain_PlainText($PlainText)
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| PlainText | string | false | 消息文本 |
+
+**返回值**
+
+`array` 消息链成员
+
+### 生成消息链图片成员
+
+```php
+getMessageChain_Image($ImageUrl = null, $ImageBase64 = null)
+```
+
+参数二选一即可。
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| ImageUrl | string | true | 图片链接 |
+| ImageBase64 | string | true | 图片 Base64 |
+
+**返回值**
+
+`array` 消息链成员
+
+### 生成消息链 At 成员
+
+```php
+getMessageChain_At($target)
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| target | int | false | 要 At 的目标 |
+
+**返回值**
+
+`array` 消息链成员
 
 ### 判断上报类型是否为消息
 
