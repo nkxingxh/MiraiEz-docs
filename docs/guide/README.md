@@ -33,6 +33,10 @@ MiraiEz 根据 **AGPL-3.0 许可证** 进行许可，有关详细信息，请参
 
 ## 鸣谢
 
+![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png)
+
+感谢 [JetBrains](https://www.jetbrains.com/) 为本项目提供其产品的许可证。
+
 > Free. Built on open source. Runs everywhere.
 
 [Visual Studio Code](https://code.visualstudio.com/) 是一款免费开源的优秀 IDE，配合扩展可以极大地提升开发效率。
