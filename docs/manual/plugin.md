@@ -116,3 +116,19 @@ public function hook($_DATA) {...}
 | _PlainText | string | [messageChain2PlainText](./easyMirai.md#获取消息链中的文本) 函数处理得到的当前上报消息的文本内容 (仅支持上报类型为消息) |
 | _ImageUrl | array | [messageChain2ImageUrl](./easyMirai.md#获取消息链中的图片地址) 函数处理得到的当前上报消息的图片地址数组 (仅支持上报类型为消息) |
 | _At | array | [messageChain2At](./easyMirai.md#获取消息链中的-At) 函数处理得到的当前上报消息中被@的QQ号数组 (仅支持上报类型为消息) |
+
+## 前置插件
+
+如果你想把你的插件作为前置库提供给其他插件使用，则需要在插件类定义中增加一个常量。
+
+```php
+const _pluginFrontLib = true;
+```
+
+前置插件与一般插件并无太大的区别，大部分一般插件支持的功能在前置插件上也支持。
+
+与一般插件不同的是，前置插件类不会在执行完挂钩函数后被释放，并且其他插件可以[实例化前置插件对象](./pluginsHelp.md#实例化前置插件对象)。
+
+::: tip 前置插件开发建议
+在前置插件中调用 writeLog、getConfig、saveConfig 等函数时，请不要将文件名留空 (即不要留空让这些函数自动获取插件包名)。具体原因请看 [`plugin_whoami()` 方法注意事项](./pluginsHelp.md#获取当前插件包名)
+:::
