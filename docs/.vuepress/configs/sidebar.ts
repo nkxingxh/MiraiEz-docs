@@ -17,7 +17,7 @@ export const sidebarZh: SidebarConfig = {
           '/manual/easyMirai.md',
           '/manual/pluginsHelp.md',
           '/manual/curl.md',
-          //'/manual/examples.md'
+          '/manual/examples.md'
         ],
       },
       /*{
