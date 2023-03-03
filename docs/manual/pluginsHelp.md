@@ -45,10 +45,31 @@ saveConfig($configFile = '', $config, $jsonEncodeFlags = JSON_UNESCAPED_UNICODE)
 
 `bool` 成功为 true, 失败为 false
 
+### 获取前置插件类
+
+::: tip 提示
+只需要使用前置插件中的**常量或静态函数**时，可以使用此函数获取插件类而无需实例化。使用 `::` 静态调用即可。
+*例如 plugin_getFrontClass('top.nkxingxh.examplePlugin')::func()*
+:::
+
+```php
+plugin_getFrontClass(string $package)
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| package | string | false | 要实例化插件类的插件包名 |
+
+**返回值**
+
+- <Badge type="tip" text="成功" vertical="middle" /> `string` 插件类名
+- <Badge type="warning" text="失败" vertical="middle" /> `bool` 该插件不是一个前置插件返回 false
+- <Badge type="danger" text="失败" vertical="middle" /> `null` 插件不存在
+
 ### 实例化前置插件对象
 
 ```php
-function plugin_loadFrontLib(string $package, ...$init_args)
+plugin_loadFrontObject(string $package, ...$init_args)
 ```
 
 | 参数 | 类型 | 可选 | 说明 |
@@ -69,7 +90,7 @@ function plugin_loadFrontLib(string $package, ...$init_args)
 :::
 
 ```php
-function plugin_whoami(bool $backtrace = MIRAIEZ_PLUGINS_WHOAMI_BACKTRACE)
+plugin_whoami(bool $backtrace = MIRAIEZ_PLUGINS_WHOAMI_BACKTRACE)
 ```
 
 | 参数 | 类型 | 可选 | 说明 |
