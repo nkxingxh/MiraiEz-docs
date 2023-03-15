@@ -40,3 +40,7 @@ MiraiEz 根据 **AGPL-3.0 许可证** 进行许可，有关详细信息，请参
 > Free. Built on open source. Runs everywhere.
 
 [Visual Studio Code](https://code.visualstudio.com/) 是一款免费开源的优秀 IDE，配合扩展可以极大地提升开发效率。
+
+## 其他
+
+> 本框架会收集一些信息用于统计分析，这些信息包括框架版本、系统架构、插件列表与 QQ 号。其中不会包含任何隐私信息，并且我们不会向第三方共享这些数据。

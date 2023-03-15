@@ -83,6 +83,52 @@ plugin_loadFrontObject(string $package, ...$init_args)
 - <Badge type="warning" text="失败" vertical="middle" /> `bool` 该插件不是一个前置插件返回 false
 - <Badge type="danger" text="失败" vertical="middle" /> `null` 插件不存在
 
+### 获取插件列表
+
+```php
+pluginsList(bool $provide_infos = false): ?array
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| provide_infos | bool | true | 是否提供插件信息 (插件名、作者等)。默认只提供插件包名与版本 |
+
+**返回值**
+
+- <Badge type="tip" text="成功" vertical="middle" /> `array` 插件列表
+- <Badge type="danger" text="失败" vertical="middle" /> `null` 未加载插件或框架异常
+
+### 判断插件是否成功加载
+
+```php
+plugin_isLoaded(string $package): ?bool
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| package | string | false | 目标插件包名 |
+
+**返回值**
+
+- <Badge type="tip" text="成功" vertical="middle" /> `bool` 插件成功加载返回 true
+- <Badge type="warning" text="失败" vertical="middle" /> `bool` 插件未启用或加载失败返回 false
+- <Badge type="danger" text="失败" vertical="middle" /> `null` 插件不存在
+
+### 获取插件信息
+
+```php
+plugin_getInfo(string $package): ?array
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| package | string | false | 目标插件包名 |
+
+**返回值**
+
+- <Badge type="tip" text="成功" vertical="middle" /> `array` 插件信息
+- <Badge type="danger" text="失败" vertical="middle" /> `null` 插件不存在
+
 ### 获取当前插件包名
 
 ::: tip 提示
