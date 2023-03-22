@@ -126,6 +126,17 @@ recall($messageId = true, $target = true, $sessionKey = '')
 
 未定义
 
+### 通过 messageId 获取消息
+
+```php
+messageFromId($messageId = true, $target = true, $sessionKey = '')
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| messageId | int | true | 需要获取消息的 messageId (留空或传入 true 指定为当前上报消息) |
+| target | int | true | 好友 id 或群 id (留空或传入 true 指定为当前上报消息) |
+
 
 ## 文件操作与上传
 
