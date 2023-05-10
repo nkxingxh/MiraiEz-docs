@@ -237,6 +237,21 @@ isInGroup($groupID = true, $target = true)
 
 `bool` 该群是否存在该成员
 
+### 判断消息中是否 At 某人
+
+```php
+isAtSb(int $target = null, array $messageChain = null): ?bool
+```
+
+| 参数 | 类型 | 可选 | 说明 |
+| ---- | --- | ---- | --- |
+| target | int | true | 要判断的目标成员 (留空则为 bot) |
+| messageChain | array| true | 要判断的消息链 (留空则为当前消息) |
+
+**返回值**
+
+`bool` 是否 At 该成员
+
 ### 获取 BOT 在群中的权限
 
 ```php
