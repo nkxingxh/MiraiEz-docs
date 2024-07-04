@@ -20,7 +20,7 @@ MiraiEz 是一个 PHP 插件框架，通常不能脱离 mirai-api-http 使用。
 
 ## 许可
 
-> Copyright (c) 2021-2023 NKXingXh
+> Copyright (c) 2021-2024 NKXingXh
 
 MiraiEz 根据 **AGPL-3.0 许可证** 进行许可，有关详细信息，请参阅 [LICENSE](https://github.com/nkxingxh/MiraiEz/blob/main/LICENSE) 文件。
 
