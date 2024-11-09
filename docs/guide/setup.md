@@ -23,7 +23,7 @@ singleMode: false             # 设置为 false
 adapterSettings:
   http:
     host: 0.0.0.0
-    port: 8000
+    port: 8001      # 不能和 Web 服务器的端口一样
     cors: [*]
     
   webhook:
@@ -47,7 +47,7 @@ adapterSettings:
 1. 修改用于鉴权 webhook 上报的 Authorization
 
 ```php
-define("MIRAIEZ_HTTP_API", "http://localhost:8000");  // mirai-api-http 的 HTTP 适配器地址
+define("MIRAIEZ_HTTP_API", "http://localhost:8001");  // mirai-api-http 的 HTTP 适配器地址
 define("MIRAIEZ_HTTP_KEY", "qZ95l4R4TGQPrrf");        // mirai-api-http 的 verifyKey
 define("MIRAIEZ_WEBHOOK_AUTH", "hZaomcUiaulaslD");    // 需要和 webhook 适配器的 Authorization 一致
 ```
