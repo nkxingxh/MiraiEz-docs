@@ -10,9 +10,9 @@
 1. 确保 `singleMode` 值为 false
 
 ```yml
-enableVerify: true
-verifyKey: qZ95l4R4TGQPrrf
-singleMode: false
+enableVerify: true            # 启用验证
+verifyKey: qZ95l4R4TGQPrrf    # 随机生成一个, 和等下设置的 MIRAIEZ_HTTP_KEY 要一致
+singleMode: false             # 设置为 false
 ```
 
 **适配器配置**
@@ -23,18 +23,22 @@ singleMode: false
 adapterSettings:
   http:
     host: 0.0.0.0
-    port: 8082
+    port: 8000
     cors: [*]
     
   webhook:
+    # 配置 webhook.php 的 URL
     destinations: 
-    - 'http://localhost:8081/webhook.php'
+    - 'http://localhost:8000/webhook.php'
 
+    # 和等下设置的 MIRAIEZ_WEBHOOK_AUTH 要一致
     extraHeaders:
       Authorization: 'hZaomcUiaulaslD'
 ```
 
 ## MiraiEz 配置
+
+### 适配器配置
 
 **修改 config/adapter.php**
 
@@ -43,19 +47,26 @@ adapterSettings:
 1. 修改用于鉴权 webhook 上报的 Authorization
 
 ```php
-define("MIRAIEZ_HTTP_API", "http://localhost:8082");
-define("MIRAIEZ_HTTP_KEY", "qZ95l4R4TGQPrrf");      //verifyKey
-define("MIRAIEZ_WEBHOOK_AUTH", "hZaomcUiaulaslD");  //Authorization
+define("MIRAIEZ_HTTP_API", "http://localhost:8000");  // mirai-api-http 的 HTTP 适配器地址
+define("MIRAIEZ_HTTP_KEY", "qZ95l4R4TGQPrrf");        // mirai-api-http 的 verifyKey
+define("MIRAIEZ_WEBHOOK_AUTH", "hZaomcUiaulaslD");    // 需要和 webhook 适配器的 Authorization 一致
 ```
+
+### 调试配置
+
+::: tip
+调试群组和好友并非框架作用域!
+当消息或事件发生在启用调试的群组与好友时，如果出现未捕获的异常或者错误，MiraiEz 将会直接以消息的形式发送到当前对话中。
+:::
 
 **修改 config/debug.php**
 
 1. 设置管理员 QQ
-1. 配置启用调试的好友与群组
+2. 配置启用调试的好友与群组
 
 ```php
-define('MIRAIEZ_ADMIN_QQ', 1234567890);     //填写管理员 QQ
+define('MIRAIEZ_ADMIN_QQ', 1234567890);     // 填写管理员 QQ
 
-$MIRAIEZ_DEBUG_GROUPS = [123456789];        //启用调试的群组
-$MIRAIEZ_DEBUG_FRIENDS = [1234567890];      //启用调试的好友
+$MIRAIEZ_DEBUG_GROUPS = [123456789];        // 启用调试的群组
+$MIRAIEZ_DEBUG_FRIENDS = [1234567890];      // 启用调试的好友
 ```
